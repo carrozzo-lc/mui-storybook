@@ -1,9 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import SubscriptionAlert from './components/SubscriptionAlert/SubscriptionAlert';
-import FaqBlock from './components/FaqBlock/FaqBlock';
+import React from "react";
 
-const faqs = [
+import CustomFaqBlock from "../../components/FaqBlock/FaqBlock";
+
+export default {
+  title: "Component/FaqBlock",
+  component: CustomFaqBlock,
+};
+
+const Template = (args) => <CustomFaqBlock {...args} />;
+
+export const FaqBlockComponent = Template.bind({});
+
+FaqBlockComponent.args = {
+  faqData: [
   {
     question: "What are the Payment Methods?",
     answer: "<p>If your payment has been declined, please check that you have filled in all fields correctly:</p><ul> <li>Check that the card expiration date, card numbers and billing address you entered are correct.</li><li>Check the security code. N.B. The security code or CCV is the three-digit number found on the back of the card.</li><li>The card issuer may have declined the payment - contact your bank or PayPal directly to verify.</li></ul><p>If you've followed all the steps above, try using another card.</p>",
@@ -45,33 +54,4 @@ const faqs = [
     answer: "<p>If your payment has been declined, please check that you have filled in all fields correctly:</p><ul> <li>Check that the card expiration date, card numbers and billing address you entered are correct.</li><li>Check the security code. N.B. The security code or CCV is the three-digit number found on the back of the card.</li><li>The card issuer may have declined the payment - contact your bank or PayPal directly to verify.</li></ul><p>If you've followed all the steps above, try using another card.</p>",
   }
 ]
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <SubscriptionAlert
-          alertTitle={`Your premium period will be renewed on test`}
-          alertSubtitle={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget blandit lacus, a mollis nibh. Cras nisl ante, egestas quis dui vel, varius.'}
-          alertBtnAction={() => {console.log('test')}}
-          alertBtnText={'Manage Subscription'}
-        />
-        <FaqBlock faqData={faqs} />        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+};
